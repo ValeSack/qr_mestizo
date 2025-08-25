@@ -1,11 +1,5 @@
 ---
-import {
-  SiWhatsapp,
-  SiInstagram,
-  SiTiktok,
-  SiGooglemaps,
-  SiSpotify,
-} from "react-icons/si";
+import { SiWhatsapp, SiInstagram, SiTiktok, SiSpotify } from "react-icons/si";
 import { FaTripadvisor } from "react-icons/fa";
 
 const menuItems = [
@@ -83,18 +77,17 @@ const menuItems = [
     align-items: flex-start;
     justify-content: center;
     padding: 0;
-    margin-top: 100px;
+    margin-top: 200px;
     height: 100%;
-    overflow-y: auto;
   }
 
   .container {
     width: 100%;
     max-width: 85vw;
-    margin: 150px auto;
+    margin: 100px auto;
     padding: 1rem 0;
-    height: 40vh;
-    overflow-y: auto;
+    height: 36vh;
+    overflow-y: scroll;
     scrollbar-width: thin;
   }
 
@@ -145,21 +138,26 @@ const menuItems = [
   }
 
   /* Scroll personalizado */
-  .links-section::-webkit-scrollbar {
-    width: 8px;
+  .container::-webkit-scrollbar {
+    width: 12px;
   }
 
-  .links-section::-webkit-scrollbar-track {
-    background: transparent;
+  .container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
   }
 
-  .links-section::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 4px;
+  .container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.8); /* Más visible */
+    border-radius: 12px;
   }
 
-  .links-section::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5);
+  .container::-webkit-scrollbar-thumb:hover {
+    background: rgba(
+      255,
+      255,
+      255,
+      1
+    ); /* Totalmente blanco al pasar el mouse */
   }
 
   .icon {
