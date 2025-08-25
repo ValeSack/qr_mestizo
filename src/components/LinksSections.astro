@@ -1,74 +1,84 @@
 ---
-// src/components/LinksSection.astro
+import {
+  SiWhatsapp,
+  SiInstagram,
+  SiTiktok,
+  SiGooglemaps,
+  SiSpotify,
+} from "react-icons/si";
+import { FaTripadvisor } from "react-icons/fa";
+
 const menuItems = [
   {
     icon: "📖",
     text: "Menú",
-    href: "/menu",
-    bgColor: "bg-amber-900",
+    href: "https://www.canva.com/design/DAGsqpuKLNY/OK7Ut_PVWhEArs4tIJCeqg/view?utm_content=DAGsqpuKLNY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h9e6f77ec57",
+    color: "#fff",
+    isImage: true,
   },
   {
-    icon: "💬",
-    text: "Casa Mestiza",
-    href: "https://wa.me/1234567890",
-    bgColor: "bg-green-600",
+    icon: SiSpotify,
+    text: "Spotify",
+    href: "https://open.spotify.com/user/31wemjafsg5m6lirvqi5cgpb5d3a",
+    color: "#1DB954",
   },
   {
-    icon: "📷",
-    text: "@cafecasamestiza",
+    icon: SiWhatsapp,
+    text: "WhatsApp",
+    href: "https://wa.me/+5950985377710",
+    color: "#25D366",
+  },
+  {
+    icon: SiInstagram,
+    text: "Instagram",
     href: "https://instagram.com/cafecasamestiza",
-    bgColor: "bg-pink-500",
+    color: "#E1306C",
   },
   {
-    icon: "🎵",
-    text: "@cafecasamestiza",
-    href: "https://tiktok.com/@cafecasamestiza",
-    bgColor: "bg-black",
+    icon: SiTiktok,
+    text: "Tiktok",
+    href: "https://www.tiktok.com/@cafecasamestiza",
+    color: "#010101",
   },
   {
-    icon: "📍",
-    text: "Casa Mestiza Café",
-    href: "https://maps.google.com",
-    bgColor: "bg-blue-600",
+    icon: SiGooglemaps,
+    text: "Ubicación",
+    href: "https://www.google.com/maps/place/Casa+Mestiza+Caf%C3%A9/@-25.5146075,-54.6268038,16z/data=!4m6!3m5!1s0x94f6850b6caa0259:0x1566f5b9de5b673d!8m2!3d-25.5146051!4d-54.6227062!16s%2Fg%2F11xkz9j1p3?entry=ttu&g_ep=EgoyMDI1MDgxOS4wIKXMDSoASAFQAw%3D%3D",
+    color: "red",
   },
   {
-    icon: "🔗",
-    text: "Link Adicional 1",
-    href: "#",
-    bgColor: "bg-purple-600",
-  },
-  {
-    icon: "🌐",
-    text: "Link Adicional 2",
-    href: "#",
-    bgColor: "bg-red-600",
+    icon: FaTripadvisor,
+    text: "Tripadvisor",
+    href: "https://www.tripadvisor.com.ar/Restaurant_Review-g298437-d33357192-Reviews-Casa_Mestiza_Cafe-Ciudad_Del_Este_Alto_Parana_Department.html",
+    color: "black",
   },
 ];
 ---
 
 <div class="links-section">
   <div class="container">
-    <!-- Contenedor con scroll -->
-    <div class="scroll-container">
-      <div class="links-wrapper">
-        {
-          menuItems.map((item) => (
-            <a
-              href={item.href}
-              target={item.href.startsWith("http") ? "_blank" : "_self"}
-              rel={item.href.startsWith("http") ? "noopener noreferrer" : ""}
-              class="link-item"
-            >
-              <div class="link-content">
-                <div class={`icon-container ${item.bgColor}`}>
+    <div class="links-wrapper">
+      {
+        menuItems.map((item) => (
+          <a
+            href={item.href}
+            target={item.href.startsWith("http") ? "_blank" : "_self"}
+            rel={item.href.startsWith("http") ? "noopener noreferrer" : ""}
+            class="link-item"
+          >
+            <div class="link-content">
+              <div class="icon-container">
+                {typeof item.icon === "string" ? (
                   <span class="icon">{item.icon}</span>
-                </div>
-                <span class="link-text">{item.text}</span>
+                ) : (
+                  <item.icon className="icon" style={{ color: item.color }} />
+                )}
               </div>
-            </a>
-          ))
-        }
-      </div>
+              <span class="link-text">{item.text}</span>
+            </div>
+          </a>
+        ))
+      }
     </div>
   </div>
 </div>
@@ -76,92 +86,90 @@ const menuItems = [
 <style>
   .links-section {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    box-sizing: border-box;
+    padding: 0;
+    margin-top: 100px;
+    height: 100%;
+    overflow-y: auto;
   }
 
   .container {
     width: 100%;
-    max-width: 28rem;
-    margin: auto;
-    box-sizing: border-box;
-  }
-
-  .scroll-container {
-    height: 70vh; /* NUEVO: más flexible para móviles */
+    max-width: 85vw;
+    margin: 150px auto;
+    padding: 1rem 0;
+    height: 40vh;
     overflow-y: auto;
     scrollbar-width: thin;
-    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-  }
-
-  .scroll-container::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .scroll-container::-webkit-scrollbar-track {
-    background: transparent;
-  }
-
-  .scroll-container::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 3px;
-  }
-
-  .scroll-container::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5);
   }
 
   .links-wrapper {
-    padding-right: 0.5rem;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 1.5rem;
+    padding: 0;
   }
 
   .link-item {
     display: block;
     width: 100%;
     text-decoration: none;
-    transition:
-      transform 0.3s ease,
-      filter 0.3s ease;
+    transition: transform 0.2s ease;
   }
 
   .link-item:hover {
-    transform: scale(1.05);
-    filter: drop-shadow(0 10px 8px rgba(0, 0, 0, 0.04))
-      drop-shadow(0 4px 3px3rgba (0, 0, 0, 0.1));
+    transform: translateY(-2px);
   }
 
   .link-content {
-    margin: 0 15px;
     display: flex;
     align-items: center;
-    border: 3px solid rgb(252, 247, 247);
-    border-radius: 20px;
-    padding: 0.1rem 4rem;
-    transition: background-color 0.3s ease;
+    border: 7px solid rgba(252, 247, 247, 0.8);
+    border-radius: 30px;
+    padding: 0.5rem 10rem;
+    backdrop-filter: blur(10px);
+    transition: all 0.2s ease;
+    margin-right: 50px;
+    margin-left: 50px;
   }
 
   .link-item:hover .link-content {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(252, 247, 247, 1);
   }
 
   .icon-container {
-    padding: 0.5rem;
-    border-radius: 50%;
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    width: 3rem;
-    height: 3rem;
+    width: 5rem;
+    height: 5rem;
+    margin-right: 2rem;
+  }
+
+  /* Scroll personalizado */
+  .links-section::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .links-section::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .links-section::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+  }
+
+  .links-section::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.5);
   }
 
   .icon {
-    color: white;
-    font-size: 1.5rem;
+    font-size: 3.2rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -169,73 +177,83 @@ const menuItems = [
 
   .link-text {
     color: white;
-    font-weight: 500;
-    font-size: 1.125rem;
+    font-weight: 700;
+    font-size: 3.2rem;
     flex: 1;
+    font-family: "Amatic SC", cursive;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
   }
 
-  .scroll-indicator {
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-  }
-
-  .scroll-indicator .dot {
-    width: 0.5rem;
-    height: 0.5rem;
-    background: rgba(255, 255, 255, 0.4);
-    border-radius: 50%;
-    margin: 0 0.125rem;
-    animation: bounce 1s infinite;
-  }
-
-  .dot-2 {
-    animation-delay: 0.1s;
-  }
-
-  .dot-3 {
-    animation-delay: 0.2s;
-  }
-
-  @keyframes bounce {
-    0%,
-    80%,
-    100% {
-      transform: translateY(0);
-    }
-    40% {
-      transform: translateY(-10px);
-    }
-  }
-
-  /* Responsive */
+  /* Responsive para móviles */
   @media (max-width: 640px) {
     .links-section {
-      padding: 0.5rem;
-      min-height: 200vh;
-      width: 100vw;
+      max-height: calc(100vh - 140px); /* Ajuste para móvil */
     }
 
     .container {
-      width: 100%;
-      max-width: 50vw;
-      margin: 0;
-      padding: auto;
+      max-width: 90vw;
+      padding: 0.8rem 0;
     }
 
-    .scroll-container {
-      height: 65vh;
-      min-height: 250px;
-      max-height: none;
+    .links-wrapper {
+      gap: 1.3rem;
     }
 
     .link-content {
-      padding: 100%;
-      margin: 0;
+      padding: 0.5rem 10rem;
+      border-radius: 22px;
+      min-height: 105px; /* Altura consistente */
+    }
+
+    .icon-container {
+      width: 4.8rem;
+      height: 4.8rem;
+      margin-right: 1.8rem;
+    }
+
+    .icon {
+      font-size: 2.3rem;
     }
 
     .link-text {
-      font-size: large;
+      font-size: 2rem;
+      font-weight: 700;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .links-section {
+      max-height: calc(100vh - 130px); /* Ajuste para móviles pequeños */
+    }
+
+    .container {
+      max-width: 95vw;
+      padding: 0.6rem 0;
+    }
+
+    .links-wrapper {
+      gap: 1.2rem;
+    }
+
+    .link-content {
+      padding: 1.6rem 1.8rem;
+      min-height: 100px;
+      border-radius: 20px;
+    }
+
+    .icon-container {
+      width: 4.5rem;
+      height: 4.5rem;
+      margin-right: 1.6rem;
+    }
+
+    .icon {
+      font-size: 2.1rem;
+    }
+
+    .link-text {
+      font-size: 1.9rem;
+      font-weight: 700;
     }
   }
 </style>
