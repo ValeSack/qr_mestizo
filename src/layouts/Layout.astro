@@ -10,6 +10,12 @@
 		<meta charset="UTF-8" />
 		<link rel="icon" type="image/png+xml" href="/logo.png" />
 		<title>Casa Mestiza</title>
+		
+		<!-- Meta tags para prevenir inversión de colores -->
+		<meta name="color-scheme" content="light">
+		<meta name="theme-color" content="#593a28">
+		<meta name="msapplication-navbutton-color" content="#593a28">
+		<meta name="apple-mobile-web-app-status-bar-style" content="light-content">
 	</head>
 	<body>
 		<slot />
@@ -21,9 +27,20 @@
 	body {
 		min-height: 100vh;
 		width: 100vw;
-		background-color: #593a28;
+		background-color: #593a28 !important;
 		margin: 0;
 		height: 100%;
 		overflow-x: hidden;
+		
+		/* Prevenir inversión de colores */
+		color-scheme: light !important;
+		-webkit-appearance: none !important;
+		forced-color-adjust: none !important;
+	}
+	
+	/* Forzar colores en todos los elementos */
+	* {
+		color-scheme: light !important;
+		forced-color-adjust: none !important;
 	}
 </style>

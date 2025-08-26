@@ -72,6 +72,12 @@ const menuItems = [
 </div>
 
 <style>
+  /* Prevenir inversión de colores en toda la sección */
+  .links-section * {
+    color-scheme: light !important;
+    forced-color-adjust: none !important;
+  }
+
   .links-section {
     display: flex;
     align-items: flex-start;
@@ -103,6 +109,9 @@ const menuItems = [
     width: 100%;
     text-decoration: none;
     transition: transform 0.2s ease;
+    color: inherit !important;
+    background-color: transparent !important;
+    forced-color-adjust: none !important;
   }
 
   .link-item:hover {
@@ -112,18 +121,20 @@ const menuItems = [
   .link-content {
     display: flex;
     align-items: center;
-    border: 7px solid rgba(252, 247, 247, 0.8);
+    border: 7px solid rgba(252, 247, 247, 0.8) !important;
     border-radius: 30px;
     padding: 0.5rem 10rem;
     backdrop-filter: blur(10px);
     transition: all 0.2s ease;
     margin-right: 50px;
     margin-left: 50px;
+    background-color: transparent !important;
+    color: inherit !important;
   }
 
   .link-item:hover .link-content {
-    background: rgba(255, 255, 255, 0.2);
-    border-color: rgba(252, 247, 247, 1);
+    background: rgba(255, 255, 255, 0.2) !important;
+    border-color: rgba(252, 247, 247, 1) !important;
   }
 
   .icon-container {
@@ -135,6 +146,7 @@ const menuItems = [
     width: 5rem;
     height: 5rem;
     margin-right: 2rem;
+    background-color: transparent !important;
   }
 
   /* Scroll personalizado */
@@ -143,21 +155,16 @@ const menuItems = [
   }
 
   .container::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.1) !important;
   }
 
   .container::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.8); /* Más visible */
+    background: rgba(255, 255, 255, 0.8) !important; /* Más visible */
     border-radius: 12px;
   }
 
   .container::-webkit-scrollbar-thumb:hover {
-    background: rgba(
-      255,
-      255,
-      255,
-      1
-    ); /* Totalmente blanco al pasar el mouse */
+    background: rgba(255, 255, 255, 1) !important; /* Totalmente blanco al pasar el mouse */
   }
 
   .icon {
@@ -165,15 +172,33 @@ const menuItems = [
     display: flex;
     align-items: center;
     justify-content: center;
+    color: inherit !important;
+    filter: none !important;
   }
 
+  /* Asegurar colores de íconos de react-icons */
+  .icon svg {
+    color: inherit !important;
+    fill: currentColor !important;
+    filter: none !important;
+  }
+
+  /* Colores específicos para cada ícono social */
+  .icon[style*="1DB954"] svg { color: #1DB954 !important; fill: #1DB954 !important; }
+  .icon[style*="25D366"] svg { color: #25D366 !important; fill: #25D366 !important; }
+  .icon[style*="E1306C"] svg { color: #E1306C !important; fill: #E1306C !important; }
+  .icon[style*="010101"] svg { color: #010101 !important; fill: #010101 !important; }
+  .icon[style*="black"] svg { color: black !important; fill: black !important; }
+
   .link-text {
-    color: white;
-    font-weight: 700;
-    font-size: 3.2rem;
+    color: white !important;
+    font-weight: 700 !important;
+    font-size: 3.2rem !important;
     flex: 1;
-    font-family: "Amatic SC", cursive;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    font-family: "Amatic SC", cursive !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3) !important;
+    filter: none !important;
+    -webkit-text-fill-color: white !important;
   }
 
   /* Responsive para móviles */
@@ -208,8 +233,10 @@ const menuItems = [
     }
 
     .link-text {
-      font-size: 2rem;
-      font-weight: 700;
+      font-size: 2rem !important;
+      font-weight: 700 !important;
+      color: white !important;
+      -webkit-text-fill-color: white !important;
     }
   }
 
@@ -244,8 +271,10 @@ const menuItems = [
     }
 
     .link-text {
-      font-size: 1.9rem;
-      font-weight: 700;
+      font-size: 1.9rem !important;
+      font-weight: 700 !important;
+      color: white !important;
+      -webkit-text-fill-color: white !important;
     }
   }
 </style>
