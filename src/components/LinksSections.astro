@@ -12,7 +12,7 @@ const menuItems = [
   },
   {
     icon: SiSpotify,
-    text: "Spotify",
+    text: "@La Banda Mestiza",
     href: "https://open.spotify.com/user/31wemjafsg5m6lirvqi5cgpb5d3a",
     color: "#1DB954",
   },
@@ -24,19 +24,19 @@ const menuItems = [
   },
   {
     icon: SiInstagram,
-    text: "Instagram",
+    text: "@cafecasamestiza",
     href: "https://instagram.com/cafecasamestiza",
     color: "#E1306C",
   },
   {
     icon: SiTiktok,
-    text: "Tiktok",
+    text: "@cafecasamestiza",
     href: "https://www.tiktok.com/@cafecasamestiza",
     color: "#010101",
   },
   {
     icon: FaTripadvisor,
-    text: "Tripadvisor",
+    text: "Casa Mestiza Café",
     href: "https://www.tripadvisor.com.ar/Restaurant_Review-g298437-d33357192-Reviews-Casa_Mestiza_Cafe-Ciudad_Del_Este_Alto_Parana_Department.html",
     color: "black",
   },
@@ -92,7 +92,7 @@ const menuItems = [
     max-width: 85vw;
     margin: 100px auto;
     padding: 0;
-    height: 32vh;
+    height: 33vh;
     overflow-y: scroll;
     scrollbar-width: thin;
   }
@@ -109,13 +109,21 @@ const menuItems = [
     width: 100%;
     text-decoration: none;
     transition: transform 0.2s ease;
+    background-color: rgba(252, 247, 247, 0) !important; /* Fondo claro y semitransparente */
     color: inherit !important;
-    background-color: transparent !important;
     forced-color-adjust: none !important;
   }
 
   .link-item:hover {
     transform: translateY(-2px);
+  }
+
+  .link-item:active,
+  .link-item:active .link-content {
+    background-color: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+    -webkit-tap-highlight-color: transparent !important;
   }
 
   .link-content {
@@ -128,12 +136,11 @@ const menuItems = [
     transition: all 0.2s ease;
     margin-right: 50px;
     margin-left: 50px;
-    background-color: transparent !important;
+    background-color: rgba(252, 247, 247, 0) !important; /* Fondo claro y semitransparente */
     color: inherit !important;
   }
 
   .link-item:hover .link-content {
-    background: rgba(255, 255, 255, 0.2) !important;
     border-color: rgba(252, 247, 247, 1) !important;
   }
 
@@ -164,7 +171,12 @@ const menuItems = [
   }
 
   .container::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 1) !important; /* Totalmente blanco al pasar el mouse */
+    background: rgba(
+      255,
+      255,
+      255,
+      1
+    ) !important; /* Totalmente blanco al pasar el mouse */
   }
 
   .icon {
@@ -172,7 +184,6 @@ const menuItems = [
     display: flex;
     align-items: center;
     justify-content: center;
-    /* NO pongas color-scheme ni forced-color-adjust aquí */
     filter: none !important;
   }
 
@@ -182,12 +193,27 @@ const menuItems = [
     filter: none !important;
   }
 
-  /* Colores específicos para cada ícono social */
-  .icon[style*="1DB954"] svg { color: #1DB954 !important; fill: #1DB954 !important; }
-  .icon[style*="25D366"] svg { color: #25D366 !important; fill: #25D366 !important; }
-  .icon[style*="E1306C"] svg { color: #E1306C !important; fill: #E1306C !important; }
-  .icon[style*="010101"] svg { color: #010101 !important; fill: #010101 !important; }
-  .icon[style*="black"] svg { color: black !important; fill: black !important; }
+  /* Colores específicos para íconos sociales */
+  .icon[style*="1DB954"] svg {
+    color: #1db954 !important;
+    fill: #1db954 !important;
+  }
+  .icon[style*="25D366"] svg {
+    color: #25d366 !important;
+    fill: #25d366 !important;
+  }
+  .icon[style*="E1306C"] svg {
+    color: #e1306c !important;
+    fill: #e1306c !important;
+  }
+  .icon[style*="010101"] svg {
+    color: #010101 !important;
+    fill: #010101 !important;
+  }
+  .icon[style*="black"] svg {
+    color: black !important;
+    fill: black !important;
+  }
 
   .link-text {
     color: white !important;
