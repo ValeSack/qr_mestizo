@@ -72,8 +72,8 @@ const menuItems = [
 </div>
 
 <style>
-  /* Prevenir inversión de colores en toda la sección */
-  .links-section * {
+  /* Elimina el selector universal que afecta a todo */
+  .links-section {
     color-scheme: light !important;
     forced-color-adjust: none !important;
   }
@@ -172,11 +172,10 @@ const menuItems = [
     display: flex;
     align-items: center;
     justify-content: center;
-    color: inherit !important;
+    /* NO pongas color-scheme ni forced-color-adjust aquí */
     filter: none !important;
   }
 
-  /* Asegurar colores de íconos de react-icons */
   .icon svg {
     color: inherit !important;
     fill: currentColor !important;

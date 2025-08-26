@@ -14,13 +14,10 @@ import LinksSections from "./LinksSections.astro";
 </div>
 
 <style>
-	/* Prevenir inversión de colores */
-	#container * {
+	/* Elimina el selector universal que afecta a todo */
+	#container {
 		color-scheme: light !important;
 		forced-color-adjust: none !important;
-	}
-
-	#container {
 		color: white !important;
 		min-height: 100vh;
 		height: 100vh;
